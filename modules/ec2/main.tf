@@ -5,7 +5,7 @@ resource "aws_instance" "create" {
     subnet_id = var.subnet_id
     key_name = var.key_name 
     user_data = var.user_data
-    iam_instance_profile = var.iam_instance_profile
+    iam_instance_profile = var.name
     tags = {
         Name = "abhishek-terraform"
         owner = "abhishek"
@@ -46,7 +46,6 @@ resource "aws_iam_policy" "test" {
 }
 
 resource "aws_iam_role_policy_attachment" "test" {
-  name = "TEST"
   role = aws_iam_role.test.name
   policy_arn = aws_iam_policy.test.arn
 }
